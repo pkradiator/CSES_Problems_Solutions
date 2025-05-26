@@ -10,14 +10,9 @@ int main(){
   int x, n; cin >> x >> n;
   divs.insert(0);
   divs.insert(x);
+  div_lens.insert(x);
   
-  int ini; cin >> ini;
-  divs.insert(ini);
-  div_lens.insert(ini);
-  div_lens.insert(x - ini);
-  cout << *(div_lens.rbegin()) << " ";
-  
-  for(int i=2; i <= n; i++){
+  for(int i=1; i <= n; i++){
     int di; cin >> di;
     auto it = divs.upper_bound(di);
     int interval = *(it) - *(prev(it, 1)), a = di - *(prev(it, 1)), b = *it - di;
